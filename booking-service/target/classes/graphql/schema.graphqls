@@ -1,0 +1,18 @@
+type Query {
+    checkStatus: String
+    getAllBookings: [Booking]
+    getBookingById(bookingId: String!): Booking
+}
+
+type Booking {
+    id: ID
+    bookingId: String
+    customerId: String
+    vehicleId: String
+    estimatedPrice: Float
+    status: String
+    insuranceType: String
+    paymentMethod: String
+    createdAt: String
+    confirmedAt: String
+}
