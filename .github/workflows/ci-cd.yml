@@ -22,10 +22,7 @@ jobs:
         run: mvn clean package -DskipTests -pl booking-service -am
 
       - name: Log in to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: Misk Ashour
-          password: dckr_pat_9xvsb16Bqfu2uprUt8r16_mUAw8
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
 
       - name: Build Docker image
         run: docker build -t ${{ secrets.DOCKER_USERNAME }}/carrental-booking-service:latest ./booking-service
